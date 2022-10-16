@@ -1,0 +1,12 @@
+<%= link_to 'Back', :back %>
+<h3>Current weather for <%= @presenter.location_name %>
+  <%- if @presenter.current_weather_cached %>
+    <span class="badge bg-secondary rounded-pill">Cached</span>
+  <%- end %>
+</h3>
+
+<%= render partial: 'shared/weather_record', object: @presenter.current_weather, as: :record %>
+
+<%#= render partial: 'shared/weather_record', collection: @presenter.weather_forecasts, as: :record %>
+
+

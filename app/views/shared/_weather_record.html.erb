@@ -1,0 +1,12 @@
+<div>
+  Current temperature: <%= number_with_precision(record.temp, precision: 2) %>
+</div>
+<div>
+  Feels like: <%= number_with_precision(record.feels_like, precision: 2) %>
+</div>
+<div>
+  Min temperature: <%= number_with_precision(record.temp_min, precision: 2)  %>
+</div>
+<div>
+  Max temperature: <%= number_with_precision(record.temp_max, precision: 2) %>
+</div>
