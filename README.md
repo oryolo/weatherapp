@@ -67,6 +67,12 @@ Run tests with the following command:
 bundle exec rspec
 ```
 
+## Screenshots
+
+<img src="https://user-images.githubusercontent.com/26096960/196049979-cbb96bf4-f34b-46e0-8553-b5f1ab3cd34a.png" width="200">
+<img src="https://user-images.githubusercontent.com/26096960/196049970-3e612fe3-f6de-4ed5-bdbb-45ae7ec4030f.png" width="200">
+
 ## Production Setup
 
 TBD
+
