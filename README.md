@@ -1,24 +1,72 @@
-# README
+## Weather Service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This service provides information about the current weather and weather forecasts
+for a specific address (location, city, zip, etc.) requested by a user.
 
-Things you may want to cover:
+## Development Setup
 
-* Ruby version
+1 .Clone repository to your working directory with:
+```shell
+git clone git@github.com:oryolo/weatherapp.git 
+```
 
-* System dependencies
+2. Install dependencies with:
+```shell
+bundle install
+```
 
-* Configuration
+3. Create `config/master.key` file and insert and save it with the master key secret that you were provided with.
 
-* Database creation
 
-* Database initialization
+4. Setup the database with:
+```shell
+bundle exec rails db:setup
+```
 
-* How to run the test suite
+5. Run the development server:
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+bundle exec rails s
+```
 
-* Deployment instructions
+6. Now you can open a browser and navigate to http://localhost:3000 to use the service.
 
-* ...
+## Development Notes
+
+### Data Providers
+
+* OpenWeather API [documentation](https://openweathermap.org/api)
+* GeoApify API [documentation](https://apidocs.geoapify.com/)
+
+### Data Modeling
+
+`SearchRequest` - stores user requests as a normalized string(downcased, stripped).
+
+`Location` - stores geo coordinates, city name, state, and other geo properties.
+
+`WeatherRecord` - stores fetched current weather data and used as a cache store.
+
+`WeatherForecast` - stores weather forecast data (requires a premium subscription to OpenWeather API).
+
+### Service Classes
+
+`LocationLookup` - tracks search requests and manages geo locations(using gem 'geocoder' and Geoapify API)
+
+`WeatherProvider` - fetches weather data from the OpenWeather API.
+
+### Restrictions and limitations
+
+* Currently, only US addresses are supported.
+* Weather cache threshold is set to 30 minutes per geo location. 
+
+## Running Tests
+
+Run tests with the following command:
+
+```shell
+bundle exec rspec
+```
+
+## Production Setup
+
+TBD
