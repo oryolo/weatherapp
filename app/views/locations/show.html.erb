@@ -1,9 +1,9 @@
 <%= link_to 'Back', :back %>
-<h3>Current weather for <%= @presenter.location_name %>
+<h5 class="text-center mt-4">Current weather for <%= @presenter.location_name %>
   <%- if @presenter.current_weather_cached %>
-    <span class="badge bg-secondary rounded-pill">Cached</span>
+    <span class="badge rounded-pill bg-secondary">Cached</span>
   <%- end %>
-</h3>
+</h5>
 
 <%= render partial: 'shared/weather_record', object: @presenter.current_weather, as: :record %>
 

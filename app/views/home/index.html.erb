@@ -4,7 +4,7 @@
     <%= form_with url: "/search", method: :post do |form| %>
       <div class="row">
         <div class="col-8">
-          <%= form.text_field :query, placeholder: "Enter city name", class: "form-control form-control-md" %>
+          <%= form.text_field :query, placeholder: "Enter city name or zip", class: "form-control form-control-md" %>
         </div>
         <div class="col-4"><%= form.submit "Search", class: "btn btn-primary" %></div>
       </div>
@@ -13,16 +13,17 @@
   <div class="col"></div>
 </div>
 
-
-<h3>Search history</h3>
-<%- @locations.each do |location| %>
-  <%- if location.postcode %>
-    <div>
-      <%= link_to location.postcode, location %>
-    </div>
-  <%- else %>
-    <div>
-      <%= link_to location.city, location %>
-    </div>
-  <%- end %>
-<% end %>
+<%- if @locations.present? %>
+  <h4 class="mt-4">Search history</h4>
+  <%- @locations.each do |location| %>
+    <%- if location.postcode %>
+      <div>
+        <%= link_to location.postcode, location %>
+      </div>
+    <%- else %>
+      <div>
+        <%= link_to "#{location.city}, #{location.state}", location %>
+      </div>
+    <%- end %>
+  <% end %>
+<%- end %>
